@@ -1,1 +1,133 @@
-
+{
+    "layer": "top",
+    "position": "top",
+    "mod": "dock",
+    "exclusive": true,
+    "passthrough": false,
+    "gtk-layer-shell": true,
+    "height": 50,
+    "modules-left": [
+        "hyprland/workspaces",
+        "custom/wl-gammarelay-temperature",
+        "custom/wl-gammarelay-brightness"
+    ],
+    "modules-center": [
+        "clock#calendar",
+        "clock"
+    ],
+    "modules-right": [
+        "custom/performance",
+        "network",
+        "bluetooth",
+        "pulseaudio",
+        "pulseaudio#microphone",
+        "tray",
+        "custom/power"
+    ],
+    "hyprland/window": {
+        "format": "{}",
+        "max-length": 200,
+        "separate-outputs": true
+    },
+    "hyprland/workspaces": {
+        "disable-scroll": true,
+        "all-outputs": true,
+        "on-click": "activate",
+        "persistent-workspaces": {
+            "1": ["HDMI-A-1"],
+            "2": ["DP-2"],
+            "3": ["DP-3"],
+            "4": ["HDMI-A-1"],
+            "5": ["DP-2"],
+            "6": ["DP-3"],
+            "7": ["HDMI-A-1"],
+            "8": ["DP-2"],
+            "9": ["DP-3"]//,
+            //"10": []
+        }
+    },
+    "custom/power": {
+        "format": "",
+        //"on-click": "swaynag -t warning -m 'Power Menu Options' -b 'Logout' 'swaymsg exit' -b 'Restart' 'shutdown -r now' -b 'Shutdown'  'shutdown -h now' --background=#55658260 --border=#002b3360 --border-bottom=#002b3360 --text=#f8f8f2 --message-padding=64 --button-gap=8 --button-padding=16 --button-text=#f8f8f2 --button-background=#6e7073 --button-border=#002b33 --button-margin-right=640"
+        "on-click": "wlogout"
+    },
+    "custom/performance": {
+        "format": "P",
+        "on-click": "swaynag -t warning -m 'Performance Setting' -b 'Power-Saver' 'powerprofilesctl set power-saver && pkill swaynag' -b 'Balanced' 'powerprofilesctl set balanced && pkill swaynag' -b 'Performance'  'powerprofilesctl set performance && pkill swaynag' --background=#55658260 --border=#002b3360 --border-bottom=#002b3360 --text=#f8f8f2 --message-padding=16 --button-gap=8 --button-padding=16 --button-text=#f8f8f2 --button-background=#6e7073 --button-border=#002b33 --button-margin-right=8"
+    },
+    "tray": {
+        "icon-size": 36,
+        "spacing": 10
+    },
+    "clock": {
+        "format": " {:%I:%M %p}"//,
+        //"tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+    "clock#calendar": {
+        "format": "  {:%a, %b %e}",
+        "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
+    },
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "tooltip": false,
+        "format-muted": " Muted",
+        "on-click": "pamixer -t",
+        "on-scroll-up": "pamixer -i 5",
+        "on-scroll-down": "pamixer -d 5",
+        "scroll-step": 5,
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": [
+                "",
+                "",
+                ""
+            ]
+        }
+    },
+    "pulseaudio#microphone": {
+        "format": "{format_source}",
+        "format-source": " {volume}%",
+        "format-source-muted": " Muted",
+        "on-click": "pamixer --default-source -t",
+        "on-scroll-up": "pamixer --default-source -i 5",
+        "on-scroll-down": "pamixer --default-source -d 5",
+        "scroll-step": 5
+    },
+    "network": {
+        //"interface": "enp6*", // (Optional) To force the use of this interface
+        //"interval": 5,
+        "format-wifi": "  {signalStrength}%",
+        "format-ethernet": /*" {bandwidthDownBits}  {bandwidthUpBits}  " */" {ipaddr}/{cidr}",
+        "tooltip-format": "{ipaddr}/{cidr} on {essid} - {ifname} via {gwaddr} ",
+        "format-linked": "{ifname} (No IP) ",
+        "format-disconnected": "Disconnected ⚠",
+        "format-alt": "{ifname}:{essid} {ipaddr}/{cidr}",
+        "on-click": "nm-applet"
+    },
+    "bluetooth": {
+        "format": " {status}",
+        "format-disabled": " {status}", // an empty format will hide the module
+        "format-connected": " {num_connections}",
+        "tooltip-format": "{device_alias}",
+        "tooltip-format-connected": " {device_enumerate}",
+        "tooltip-format-enumerate-connected": "{device_alias}",
+        "on-click": "blueman-manager"
+    },
+    "custom/wl-gammarelay-temperature": {
+    	"format": " {}",
+    	"exec": "wl-gammarelay --subscribe Temperature",
+    	"on-scroll-up": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n +100",
+    	"on-scroll-down": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateTemperature n -100"
+	},
+    "custom/wl-gammarelay-brightness": {
+	"format": " {}",
+	"exec": "wl-gammarelay --subscribe Brightness",
+	"on-scroll-up": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateBrightness d +0.02",
+	"on-scroll-down": "busctl --user -- call rs.wl-gammarelay / rs.wl.gammarelay UpdateBrightness d -0.02"
+	}
+}

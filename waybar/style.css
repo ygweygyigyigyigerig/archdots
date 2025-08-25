@@ -1,0 +1,210 @@
+* {
+	border: none;
+	border-radius: 0;
+	font-family: "JetBrainsMono Nerd Font";
+	font-size: 16px;
+	font-weight: bold;
+	min-height: 24px;
+}
+
+window#waybar {
+	background: transparent;
+}
+
+window#waybar.hidden {
+	opacity: 0.2;
+}
+
+tooltip {
+	background: #1e1e2e;
+	border-radius: 10px;
+	border-width: 2px;
+	border-style: solid;
+	border-color: #11111b;
+}
+
+#window {
+    margin-top: 8px;
+    padding-left: 16px;
+    padding-right: 16px;
+	border-radius: 26px;
+	transition: none;
+	/*
+    color: #f8f8f2;
+	background: #282a36;
+    */
+    color: transparent;
+	background: transparent;
+}
+
+window#waybar.termite #window,
+window#waybar.Firefox #window,
+window#waybar.Navigator #window,
+window#waybar.PCSX2 #window {
+    color: #4d4d4d;
+	background: #e6e6e6;
+}
+
+#tray {
+	margin-top: 8px;
+	margin-left: 12px;
+	margin-bottom: 0;
+	border-radius: 26px;
+	background: transparent;
+	transition: none;
+}
+
+#workspaces {
+	margin-top: 8px;
+	margin-left: 12px;
+	margin-bottom: 0;
+	border-radius: 26px;
+	background: #282a36;
+	transition: none;
+}
+
+#workspaces button {
+	transition: none;
+	color: #f8f8f2;
+	background: transparent;
+	font-size: 16px;
+}
+
+#workspaces button.active {
+	color: #FF0000;
+}
+
+#workspaces button:hover {
+	transition: none;
+	box-shadow: inherit;
+	text-shadow: inherit;
+	color: #FF0000/*#ff79c6*/;
+}
+
+#mpd {
+	margin-top: 8px;
+	margin-left: 8px;
+	padding-left: 16px;
+	padding-right: 16px;
+	margin-bottom: 0;
+	border-radius: 26px;
+	background: #282a36;
+	transition: none;
+	color: #4d4d4d;
+	background: #5af78e;
+}
+
+#mpd.disconnected,
+#mpd.stopped {
+	color: #f8f8f2;
+	background: #282a36;
+}
+
+#bluetooth {
+	margin-top: 8px;
+	margin-left: 8px;
+	padding-left: 16px;
+	padding-right: 16px;
+	margin-bottom: 0;
+	border-radius: 26px;
+	transition: none;
+	color: #f8f8f2;
+	background: #282a36 /*#0047AB*/;
+}
+
+#network {
+	margin-top: 8px;
+	margin-left: 8px;
+	padding-left: 16px;
+	padding-right: 16px;
+	margin-bottom: 0;
+	border-radius: 26px;
+	transition: none;
+	color: #f8f8f2;/*#4d4d4d;*/
+	background: #282a36;/*#33ccff;*/
+}
+
+#pulseaudio.microphone {
+	margin-top: 8px;
+	margin-left: 8px;
+	padding-left: 16px;
+	padding-right: 16px;
+	margin-bottom: 0;
+	border-radius: 26px;
+	transition: none;
+	color: #f8f8f2;
+	background: #282a36;/*#00a36c;*/
+}
+
+#pulseaudio {
+	margin-top: 8px;
+	margin-left: 8px;
+	padding-left: 16px;
+	padding-right: 16px;
+	margin-bottom: 0;
+	border-radius: 26px;
+	transition: none;
+	color: #f8f8f2;/*4d4d4d;*/
+	background: #282a36;/*#9aedfe#00ff99*/
+}
+
+#custom-power {
+	margin-top: 8px;
+	margin-left: 8px;
+	padding-left: 16px;
+	padding-right: 16px;
+	margin-bottom: 0;
+	border-radius: 26px;
+	transition: none;
+	color: #4d4d4d;
+	background: #FF0000;
+}
+
+#custom-performance {
+	margin-top: 8px;
+	margin-left: 8px;
+	padding-left: 16px;
+	padding-right: 16px;
+	margin-bottom: 0;
+	border-radius: 26px;
+	transition: none;
+	color: #f8f8f2;
+	background: #000000;
+}
+
+#clock {
+	margin-top: 8px;
+	margin-left: 8px;
+	margin-right: 12px;
+	padding-left: 16px;
+	padding-right: 16px;
+	margin-bottom: 0;
+	border-radius: 26px;
+	transition: none;
+	color: #f8f8f2;
+	background: #282a36;
+}
+
+#custom-wl-gammarelay-temperature {
+	margin-top: 8px;
+	margin-left: 8px;
+	padding-left: 16px;
+	padding-right: 16px;
+	margin-bottom: 0;
+	border-radius: 26px;
+	transition: none;
+	color: #f8f8f2;
+	background: #282a36;/*#00a36c;*/
+}
+
+#custom-wl-gammarelay-brightness {
+	margin-top: 8px;
+	margin-left: 8px;
+	padding-left: 16px;
+	padding-right: 16px;
+	margin-bottom: 0;
+	border-radius: 26px;
+	transition: none;
+	color: #f8f8f2;
+	background: #282a36;/*#00a36c;*/
+}
